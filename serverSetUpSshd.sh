@@ -160,8 +160,11 @@ mkdir -p /home/phil/AppaAppsPhotoApp/zip/
 mkdir -p /home/phil/AppaAppsPhotoApp/assets/congratulations/
 mkdir -p /home/phil/AppaAppsPhotoApp/assets/prompts/
 
-perl /home/phil/AppaApps
+wget https://github.com/coreliuOrg/photoApp/archive/master.zip
+unzip master.zip 
+mv -f photoApp-master/App
 ENDCAT
 ssh-copy-id root@$1                                                           # Copy identity
 rsync -e "ssh -o ForwardX11=no" /tmp/serverSetUpSshd.sh root@$1:serverSetUpSshd.sh;                        # Copy server set up file                      
-ssh -o ForwardX11=no root@test.appaapps.com  bash serverSetUpSshd.sh   
+ssh -o ForwardX11=no root@test.appaapps.com  bash serverSetUpSshd.sh/AppaAppsPhotoApp /home/phil/AppaAppsPhotoApp/
+ssh -o ForwardX11=no root@test.appaapps.com  bash serverSetUpSshd.sh/java             /home/phil/java/
