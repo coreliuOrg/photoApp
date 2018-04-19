@@ -167,5 +167,4 @@ mv -f photoApp-master/java        /home/phil/java/
 ENDCAT
 ssh-copy-id root@$1                                                           # Copy identity
 rsync -e "ssh -o ForwardX11=no" /tmp/serverSetUpSshd.sh root@$1:serverSetUpSshd.sh;                        # Copy server set up file                      
-ssh -o ForwardX11=no root@test.appaapps.com  bash serverSetUpSshd.sh/AppaAppsPhotoApp /home/phil/AppaAppsPhotoApp/
-ssh -o ForwardX11=no root@test.appaapps.com  bash serverSetUpSshd.sh/java             /home/phil/java/
+ssh -o ForwardX11=no root@test.appaapps.com  bash /tmp/serverSetUpSshd.sh                                                      # Bash server set up file  
