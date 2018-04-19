@@ -164,6 +164,7 @@ wget https://github.com/coreliuOrg/photoApp/archive/master.zip
 unzip master.zip 
 mv -f photoApp-master/AppaAppsPhotoApp /home/phil/
 mv -f photoApp-master/java        /home/phil/
+perl /home/phil/AppaAppsPhotoApp//AppaAppsPhotoApp.pm --install 
 ENDCAT
 ssh-copy-id root@$1                                                           # Copy identity
 rsync -e "ssh -o ForwardX11=no" /tmp/serverSetUpSshd.sh root@$1:serverSetUpSshd.sh;                        # Copy server set up file                      
