@@ -1,5 +1,10 @@
 # $1 - Ip address of server 
 # Set up a new Ubuntu 16 server you can afford to lose
+if [ ! -f .ssh/id_rsa ]; then
+  echo "Identity file: .ssh/id_rsa not found! Generate a key with ssh-keygen"
+  exit
+fi
+
 cat <<ENDCAT > /tmp/serverSetUpSshd.sh;
 cat <<ENDSSH > /etc/ssh/sshd_config
 # AppaAppsPhotoApp configuration
