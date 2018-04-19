@@ -1,11 +1,11 @@
 # $1 - Ip address of server 
 # Set up a new Ubuntu 16 server you can afford to lose
-if [ ! -f .ssh/id_rsa ]; then
+if [ ! -f ~/.ssh/id_rsa ]; then
   echo "Identity file: .ssh/id_rsa not found! Generate a key with ssh-keygen"
   exit
 fi
 
-cat <<ENDCAT > /tmp/serverSetUpSshd.sh;
+cat <<ENDCAT > /tmp/serverSetUpSshd.sh
 cat <<ENDSSH > /etc/ssh/sshd_config
 # AppaAppsPhotoApp configuration
 # See the sshd_config(5) manpage for details
@@ -162,9 +162,9 @@ mkdir -p /home/phil/AppaAppsPhotoApp/assets/prompts/
 
 wget https://github.com/coreliuOrg/photoApp/archive/master.zip
 unzip master.zip 
-mv -f photoApp-master/AppaAppsPhotoApp /home/phil/AppaAppsPhotoApp/
-mv -f photoApp-master/java        /home/phil/java/
+mv -f photoApp-master/AppaAppsPhotoApp /home/phil/
+mv -f photoApp-master/java        /home/phil/
 ENDCAT
 ssh-copy-id root@$1                                                           # Copy identity
 rsync -e "ssh -o ForwardX11=no" /tmp/serverSetUpSshd.sh root@$1:serverSetUpSshd.sh;                        # Copy server set up file                      
-ssh -o ForwardX11=no root@test.appaapps.com  bash serverSetUpSshd.sh                                                 # Bash server set up file  
+ssh -o ForwardX11=no root@$1 bash serverSetUpSshd.sh                                                 # Bash server set up file  
