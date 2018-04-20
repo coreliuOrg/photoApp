@@ -162,10 +162,10 @@ mkdir -p /home/phil/AppaAppsPhotoApp/assets/prompts/
 
 wget https://github.com/coreliuOrg/photoApp/archive/master.zip
 unzip -qo master.zip 
-cp -f photoApp-master/AppaAppsPhotoApp /home/phil/
-cp -f photoApp-master/java        /home/phil/
+rsync -a photoApp-master/AppaAppsPhotoApp /home/phil/
+rsync -a photoApp-master/java        /home/phil/
 perl /home/phil/AppaAppsPhotoApp/AppaAppsPhotoApp.pm --install 
 ENDCAT
 ssh-copy-id root@$1                                                           # Copy identity
-rsync -e "ssh -o ForwardX11=no" /tmp/serverSetUpSshd.sh root@$1:serverSetUpSshd.sh;                        # Copy server set up file                      
+rsync -e "ssh -o ForwardX11=no" /tmp/serverSetUpSshd.sh root@$1:serverSetUpSshd.sh                         # Copy server set up file                      
 ssh -o ForwardX11=no root@$1 bash serverSetUpSshd.sh                                                 # Bash server set up file  
