@@ -161,6 +161,7 @@ mkdir -p /home/phil/AppaAppsPhotoApp/assets/congratulations/
 mkdir -p /home/phil/AppaAppsPhotoApp/assets/prompts/
 
 wget https://github.com/coreliuOrg/photoApp/archive/master.zip
+rm        master.zip 
 unzip -qo master.zip 
 rsync -a photoApp-master/AppaAppsPhotoApp /home/phil/
 rsync -a photoApp-master/java        /home/phil/
